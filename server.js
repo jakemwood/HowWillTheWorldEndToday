@@ -9,7 +9,8 @@ var websites = {
 	'Yahoo News': 'http://news.yahoo.com/',
 	'Google News': 'http://news.google.com/',
 	'IMDb Movies in Theaters': 'http://www.imdb.com/movies-in-theaters/',
-	'Google News (Health)': 'http://news.google.com/news/feeds?pz=1&cf=all&ned=us&hl=en&topic=m&output=rss'
+	'Google News (Health)': 'http://news.google.com/news/feeds?pz=1&cf=all&ned=us&hl=en&topic=m&output=rss',
+	'Google News (Science)': 'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=snc&output=rss'
 };
 
 var disasters = {
@@ -51,7 +52,10 @@ function updateFromWebsite(index, callback) {
 					
 					var keyword_count = (content.match(new RegExp(disasters[d][k], 'g'))||[]).length;
 					disaster_counter[d] += keyword_count;
-					website_counter[website_name].push({ disaster: d, keyword: disasters[d][k] });
+					
+					if (keyword_count > 0) {
+						website_counter[website_name].push({ disaster: d, keyword: disasters[d][k] });
+					}
 				}
 			}
 			updateFromWebsite(index + 1, callback);
