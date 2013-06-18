@@ -50,7 +50,7 @@ function updateFromWebsite(index, callback) {
 						disaster_counter[d] = 0;
 					}
 					
-					var keyword_count = (content.match(new RegExp(disasters[d][k], 'g'))||[]).length;
+					var keyword_count = (content.match(new RegExp(disasters[d][k], 'gi'))||[]).length;
 					disaster_counter[d] += keyword_count;
 					
 					if (keyword_count > 0) {
