@@ -2,10 +2,16 @@ var express = require('express');
 var app = express();
 var http = require('http');
 
-var websites = ['http://news.msn.com/', 'http://www.reddit.com/r/apocalypse'];
+var websites = ['http://news.msn.com/',
+	'http://www.reddit.com/r/apocalypse',
+	'http://www.cnn.com/WORLD',
+	'http://news.yahoo.com/',
+	'http://news.google.com/',
+	'http://www.imdb.com/movies-in-theaters/',
+	'http://news.google.com/news/feeds?pz=1&cf=all&ned=us&hl=en&topic=m&output=rss'];
 
 var disasters = {
-	'Natural Disaster': ['tornado', 'fire'],
+	'Natural Disaster': ['tornado', 'fire', 'hurricane', 'thunder', 'lightning', 'storm'],
 	'Aliens': ['alien', 'ufo', 'u.f.o.'],
 	'Zombies': ['disease', 'virus', 'infection'],
 	'Asteroid / Astrological Event': ['asteroid', 'black hole', 'wormhole', 'worm hole', 'blackhole']
@@ -81,5 +87,6 @@ app.use(express.static(__dirname + '/static'));
 
 // Initial update
 updateFromWebsite(0, function() {
+	console.log("Updated!  Listening...");
 	app.listen(process.env.PORT || 8000);
 })
