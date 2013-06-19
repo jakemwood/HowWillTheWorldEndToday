@@ -10,14 +10,16 @@ var websites = {
 	'Google News': 'http://news.google.com/',
 	'IMDb Movies in Theaters': 'http://www.imdb.com/movies-in-theaters/',
 	'Google News (Health)': 'http://news.google.com/news/feeds?pz=1&cf=all&ned=us&hl=en&topic=m&output=rss',
-	'Google News (Science)': 'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=snc&output=rss'
+	'Google News (Science)': 'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=snc&output=rss',
+	'New York Times (Mass Market Non-fiction Bestselling Books)': 'http://www.nytimes.com/best-sellers-books/mass-market-paperback/list.html'
 };
 
 var disasters = {
 	'Natural Disaster': ['tornado', 'fire', 'hurricane', 'thunder', 'lightning', 'storm'],
-	'Aliens': ['alien', 'ufo', 'u.f.o.'],
+	'Aliens': ['alien', 'ufo', 'u.f.o.', 'invasion', 'area 51'],
 	'Zombies': ['disease', 'virus', 'infection'],
-	'Asteroid / Astrological Event': ['asteroid', 'black hole', 'wormhole', 'worm hole', 'blackhole']
+	'Asteroid / Astrological Event': ['asteroid', 'black hole', 'wormhole', 'worm hole', 'blackhole'],
+	'War / Attack (Self-destruction)': ['war', 'battle', 'fight', 'bomb', 'terror']
 };
 
 var disaster_counter = {};
@@ -54,7 +56,7 @@ function updateFromWebsite(index, callback) {
 					disaster_counter[d] += keyword_count;
 					
 					if (keyword_count > 0) {
-						website_counter[website_name].push({ disaster: d, keyword: disasters[d][k] });
+						website_counter[website_name].push({ disaster: d, keyword: disasters[d][k], count: keyword_count });
 					}
 				}
 			}

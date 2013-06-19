@@ -25,10 +25,10 @@
 $.get('/details', function(data) {
 	for (var website in data) {
 		var header = $('<h3>' + website + '</h3>');
-		var datatable = $('<table border="0" width="100%" cellspacing="0" cellpadding="0" class="table table-striped"><tr><td><b>Keyword Found</b></td><td><b>Categorized Under</b></td></tr></table>');
+		var datatable = $('<table border="0" width="100%" cellspacing="0" cellpadding="0" class="table table-striped"><tr><td><b>Keyword Found</b></td><td><b>Categorized Under</b></td><td><b>Keyword Count</b</td></tr></table>');
 		
 		for (var i in data[website]) {
-			datatable.append('<tr><td>' + data[website][i].keyword + '</td><td>' + data[website][i].disaster + '</td></tr>');
+			datatable.append('<tr><td>' + data[website][i].keyword + '</td><td>' + data[website][i].disaster + '</td><td>' + data[website][i].count + '</td></tr>');
 		}
 		
 		console.log(data[website]);
