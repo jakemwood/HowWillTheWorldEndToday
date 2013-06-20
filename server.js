@@ -69,7 +69,7 @@ app.get('/update', function(req, res) {
 	disaster_counter = {};
 	website_counter = {};
 	updateFromWebsite(0, function() {
-		res.send(counter);
+		res.send(disaster_counter);
 	});
 });
 
